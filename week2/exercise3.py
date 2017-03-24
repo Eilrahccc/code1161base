@@ -76,8 +76,8 @@ def loops_1c(number_of_items=5, symbol="#"):
     E.g.: ['#', '#', '#', '#', '#']
     """
     hash_list = []
-    for i in range(5):
-        hash_list.append("#")
+    for i in range(number_of_items):
+        hash_list.append(symbol)
 
     return hash_list
 
@@ -102,8 +102,10 @@ def loops_2():
     """
     star_square = []
     for j in range(10):
-        star_square.append(loops_1c(number_of_items=10, symbol="*"))
-
+        row = []
+        for i in range(10):
+            row.append("*")
+        star_square.append(row)
     return star_square
 
 
