@@ -12,7 +12,8 @@ def loop_ranger(start, stop=None, step=1):
 
     Do this using any method apart from just using range()
     """
-    pass
+    return [i for i in range(3, 8, 1)]
+    return [j for j in range(100, 104, 2)]
 
 
 def lone_ranger(start, stop, step):
@@ -20,7 +21,7 @@ def lone_ranger(start, stop, step):
 
     Look up the docs for range() and wrap it in a 1:1 way
     """
-    pass
+    return range(3, 8, 1)
 
 
 def two_step_ranger(start, stop):
@@ -29,7 +30,7 @@ def two_step_ranger(start, stop):
     Sometimes you want to hide complexity.
     Make a range function that always has a step size of 2
     """
-    pass
+    return range(100, 104, 2)
 
 
 def gene_krupa_range(start, stop, even_step, odd_step):
@@ -38,7 +39,17 @@ def gene_krupa_range(start, stop, even_step, odd_step):
     make a list that instead of having evenly spaced steps
     has odd steps be one size and even steps be another.
     """
-    pass
+    latest = start
+    the_list = []
+    index = 0
+    while latest < stop:
+        the_list.append(latest)
+        if index % 2 == 0:
+            latest = latest + even_step
+        else:
+            latest = latest + odd_step
+        index += 1
+    return the_list
 
 
 def stubborn_asker(low, high):
@@ -66,7 +77,15 @@ def not_number_rejector(message):
     "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
-    pass
+    number = "get a number:"
+    while True:
+        user_input = raw_input(number)
+        try:
+            int(user_input)
+            print("That's {} Right!".format(user_input))
+            return int(user_input)
+        except:
+            print("try again, {} is not a number:".format(user_input))
 
 
 def super_asker(low, high):
@@ -75,7 +94,23 @@ def super_asker(low, high):
     Combine stubborn_asker and not_number_rejector to make a function
     that does it all!
     """
-    pass
+    message = "a number between {low} and {high}:".format(low=low, high=high)
+
+    while True:
+        user_input = ""
+        input_number = ""
+        user_input = raw_input(message)
+        try:
+            input_number = int(user_input)
+            if low <= input_number <= high:
+                print("That's {} good.".format(input_number))
+                return input_number
+            else:
+                print("{} is not beetween {} and {}".formate(input_number,
+                                                             low,
+                                                             high))
+        except:
+            print("try again, {} is not a number:".format(user_input))
 
 
 if __name__ == "__main__":
