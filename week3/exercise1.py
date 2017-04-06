@@ -12,8 +12,10 @@ def loop_ranger(start, stop=None, step=1):
 
     Do this using any method apart from just using range()
     """
-    return [i for i in range(3, 8, 1)]
-    return [j for j in range(100, 104, 2)]
+    list_of_numbers = []
+    for x in range(start, stop, step):
+        list_of_numbers.append(x)
+    return(list_of_numbers)
 
 
 def lone_ranger(start, stop, step):
@@ -21,7 +23,7 @@ def lone_ranger(start, stop, step):
 
     Look up the docs for range() and wrap it in a 1:1 way
     """
-    return range(3, 8, 1)
+    return range(start, stop, step)
 
 
 def two_step_ranger(start, stop):
@@ -30,7 +32,12 @@ def two_step_ranger(start, stop):
     Sometimes you want to hide complexity.
     Make a range function that always has a step size of 2
     """
-    return range(100, 104, 2)
+    list_of_numbers = []
+    x = start
+    while x < stop:
+        list_of_numbers.append(x)
+        x += 2
+    return(list_of_numbers)
 
 
 def gene_krupa_range(start, stop, even_step, odd_step):
