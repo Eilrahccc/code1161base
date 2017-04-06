@@ -5,7 +5,6 @@ Steps on the way to making your own guessing game.
 from __future__ import division
 from __future__ import print_function
 from exercise1 import not_number_rejector
-from exercise1 import super_asker
 import random
 
 
@@ -50,29 +49,29 @@ def advancedGuessingGame():
             print("Not an Integer")
             continue
 
+    actualNumber = random.randint(lowerBound, upperBound)
 
-actualNumber = random.randint(lowerBound, upperBound)
+    guessed = False
 
-guessed = False
+    while not guessed:
+        try:
+            guessedNumber = int(raw_input("Have a guess: "))
+            if guessedNumber == actualNumber:
+                print("You win, {} was the answer!".format(actualNumber))
+                guessed = True
+            elif guessedNumber <= lowerBound:
+                print("No, {} is too low to be valid!".format(guessedNumber))
+            elif guessedNumber >= upperBound:
+                print("No, {} is too high to be valid!".format(guessedNumber))
+            elif guessedNumber < actualNumber:
+                print("Guess higher!")
+            elif guessedNumber > actualNumber:
+                print("Guess lower!")
+        except:
+            print("Not an Integer")
+            continue
+    return "You got it!"
 
-while not guessed:
-    try:
-        guessedNumber = int(raw_input("Have a guess: "))
-        if guessedNumber == actualNumer:
-            print("You win, {} was the answer!".format(actualNumber))
-            guessed = True
-        elif guessedNumber <= lowerBound:
-            print("No, {} is too low to be valid!".format(guessedNumber))
-        elif guessedNumber >= upperBound:
-            print("No, {} is too high to be valid!".format(guessedNumber))
-        elif guessedNumber < actualNumber:
-            print("Guess higher!")
-        elif guessedNumber > actualNumber:
-            print("Guess lower!")
-    except:
-        print("Not an Integer")
-        continue
-return "You got it!"
 
 if __name__ == "__main__":
     advancedGuessingGame()
